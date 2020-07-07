@@ -5,7 +5,7 @@ import GifCard from './components/GifCard';
 import SearchField from './components/SearchField';
 
 const APIKey = "api_key=MPa4Wdu4W5XkuFjvNJRxSjCSKiX3lNN6";
-const url = " http://api.giphy.com/v1/gifs/";
+const url = " https://api.giphy.com/v1/gifs/";
 
 class App extends Component {
   constructor(){
@@ -32,16 +32,20 @@ class App extends Component {
 
 
     try{
+
       let result =[];
+
       if(type ==="random"){
         result.push((await axios.get(completeUrl)).data.data);
       }
       else{
         result =  (await axios.get(completeUrl)).data.data;
       }
+
       this.setState({appdata: result});
 
     }
+
     catch(error){
       
     }
